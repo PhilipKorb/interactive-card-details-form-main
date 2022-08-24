@@ -1,0 +1,377 @@
+// # Front-end Style Guide
+
+// ## Layout
+
+// The designs were created to the following widths:
+
+// - Mobile: 375px
+// - Desktop: 1440px
+
+
+// ## Typography
+
+// ### Body Copy
+
+// - Font size: 18px
+
+// ### Font
+
+// - Family: [Space Grotesk](https://fonts.google.com/specimen/Space+Grotesk)
+// - Weights: 500
+@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500&display=swap');
+
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  user-select: none;
+}
+
+body {
+  font-family: 'Space Grotesk', sans-serif;
+  font-weight: 500;
+  font-size: 18px;
+}
+
+:root {
+
+// ## Colors
+
+// ### Primary
+--grad-1:-webkit-linear-gradient(90deg, rgba(100,72,254,1) 0%, rgba(96,5,148,1) 100%);
+--error-1:hsl(0, 100%, 66%);
+// - Linear gradient (active input border): hsl(249, 99%, 64%) to hsl(278, 94%, 30%)
+// - Red (input errors): hsl(0, 100%, 66%)
+
+// ### Neutral
+
+--neutral-1: hsl(0, 0%, 100%);
+// - White: hsl(0, 0%, 100%)
+
+--neutral-2: hsl(270, 3%, 87%);
+// - Light grayish violet: hsl(270, 3%, 87%)
+
+--neutral-3:hsl(279, 6%, 55%) ;
+// - Dark grayish violet: hsl(279, 6%, 55%)
+
+--neutral-4: hsl(278, 68%, 11%);
+// - Very dark violet: hsl(278, 68%, 11%)
+}
+
+@keyframes easeTop {
+  0% {
+    transform: translateY(-300px);
+    opacity: 0;
+  }
+  100% {
+    transform: translateY(0px);
+    opacity: 1;
+  }
+}
+
+@keyframes easeLeft {
+  0% {
+    transform: translateX(-800px);
+    opacity: 0;
+  }
+  100% {
+    transform: translateX(0px);
+    opacity: 1;
+  }
+}
+
+@keyframes easeDiag {
+  0% {
+    transform: translate(200px, 200px);
+    opacity: 0;
+  }
+  100% {
+    transform: translate(0px, 0px);
+    opacity: 1;
+  }
+}
+
+main {
+  width: 100%;
+  height: 100vh;
+  min-height: 100vh;
+  display: flex;
+  flex-wrap: wrap;
+  flex-basis: 33%;
+
+  .card__bg {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    background-image: url('../images/bg-main-desktop.png');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    width: 30%;
+
+    .front__card {
+      position: absolute;
+      right: -30%;
+      margin-bottom: 55%;
+      display: flex;
+      justify-content: center;
+      animation-name: easeTop;
+      animation-duration: 1.5s;
+      z-index: 2;
+      filter: drop-shadow(5px 15px 15px hsla(278, 68%, 11%, 0.35));
+
+      p{
+        position: absolute;
+        color: var(--neutral-1);
+        text-shadow: 2px 2px 2px black;
+      }
+
+      #front_number{
+        bottom: 30%;
+        font-size: 1.8rem;
+        letter-spacing: 4px;
+      }
+
+      #front_name {
+        left: 20px;
+        bottom: 25px;
+      }
+
+      #front_exp{
+        right: 20px;
+        bottom: 25px;
+      }
+
+      #front_logo {
+        position: absolute;
+        left: 20px;
+        top: 20px;
+
+      }
+    }
+
+    .back__card {
+      position: absolute;
+      right: -50%;
+      margin-top: 45%;
+      animation-name: easeLeft;
+      animation-duration: 2.5s;
+      z-index: 1;
+      filter: drop-shadow(5px 15px 15px hsla(278, 68%, 11%, 0.35));
+
+
+      h1 {
+        position: absolute;
+        color: var(--neutral-1);
+        font-size: 18px;
+        left: 350px;
+        top: 43%;
+        letter-spacing: 2px;
+        text-shadow: 2px 2px 2px black;
+
+      }
+    }
+  }
+
+  .card__inputs {
+    background-color: #FFF;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 70%;
+
+    form {
+      display: flex;
+      margin-left: 5rem;
+      flex-direction: column;
+      justify-content: center;
+      align-items: left;
+      height: 400px;
+      width: 400px;
+      animation: easeDiag 1s;
+
+      label{
+        color: var(--neutral-4);
+        margin: 0 0.5rem -1rem 0.5rem;
+        font-weight: 500;
+        text-transform: uppercase;
+      }
+
+      input {
+        text-transform: capitalize;
+        width: max-width;
+        height: 2.5rem;
+        color:var(--neutral-4);
+        font-weight: bold;
+        margin: 1rem 0.5rem;
+        border-radius: 5px;
+        border: 2px solid var(--neutral-2);
+        padding: 0 2%;
+      }
+
+      input:focus {
+        outline: none;
+        border-image-source: var(--grad-1)!important;
+        border-width: 2px;
+        border-image-slice: 1!important;
+        border-radius: 5px;
+      }
+
+      //placeholder color
+      ::placeholder {
+        color: var(--neutral-3);
+        opacity: 1; /* Firefox */
+      }
+      
+      :-ms-input-placeholder { /* Internet Explorer 10-11 */
+        color: var(--neutral-3);
+      }
+      
+      ::-ms-input-placeholder { /* Microsoft Edge */
+        color: var(--neutral-3);
+      }
+
+      //remove arrows
+      input::-webkit-outer-spin-button,
+      input::-webkit-inner-spin-button {
+        -webkit-appearance: none;
+        margin: 0;
+      }
+
+      /* Firefox */
+      input[type=number] {
+        -moz-appearance: textfield;
+      }
+
+      .card__data__label{
+        display: flex;
+        align-items: center;
+        height: 2rem;
+      }
+
+      .card__exp__cvc{
+        display: flex;
+
+        #yy{
+          width: 20%;
+        }
+        
+        #mm {
+          width: 20%;
+        }
+
+        #cvc{
+          width:50%;
+        }
+      }
+     
+      button {
+        width: max-width;
+        height: 2.5rem;
+        margin: .5rem;
+        color: var(--neutral-1);
+        background-color: var(--neutral-4);
+        border-radius: 5px;
+
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 1250px) {
+  main{
+    flex-direction: column;
+
+    .card__bg {
+      height: 30%;
+      width: 100%;
+      background-color: aqua;
+
+      .front__card {
+        right: auto;
+        left: 10%;
+        bottom: -10%;
+        margin-bottom: 0;
+
+      }
+
+      .back__card {
+        right: 10%;        
+        margin-top: 0%;
+        bottom: -25%;
+
+      }
+    }
+
+    .card__inputs {
+      height: 70%;
+      width: 100%;
+      display: flex;
+      justify-content: bottom;
+      align-items: center;
+
+      form {
+        margin-left: 0;
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 550px) {
+  main {
+    .card__bg{
+      .front__card {
+        right: auto;
+        left: 10%;
+        bottom: -10%;
+        margin-bottom: 0;
+        
+
+        #front_number  {
+          font-size: 1.1rem;
+        }
+
+        #front_name {
+          font-size: .9rem;
+        }
+
+        #front_exp {
+          font-size: .9rem;
+        }
+
+        img {
+          width: 300px;
+        }
+
+        #front_logo{
+          scale: .8;   
+          left: 2%;
+        }
+      }
+
+      .back__card {
+        right: 10%;        
+        margin-top: 0%;
+        bottom: -25%;
+
+        h1 {
+          left: 225px;
+          top: 40%;
+        }
+
+        img {
+          width: 300px;
+        }
+      }
+    }
+
+    .card__inputs {
+    
+      form {
+        width: 375px;
+        
+      }
+    }
+  }
+}

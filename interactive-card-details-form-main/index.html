@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- displays site properly based on user's device -->
+  <link rel="icon" type="image/png" sizes="32x32" href="images/favicon-32x32.png">
+  <link rel="stylesheet" href="css/style.css">
+  <title>Frontend Mentor | Interactive card details form</title>
+</head>
+<body>
+  <main>
+    <div class="card__bg">
+      <div data-tilt class="front__card">
+        <p id="front_number">0000 0000 0000 0000</p> 
+        <p id="front_name">Jane Appleseed</p>
+        <p id="front_exp">00/00</p>
+        <svg id="front_logo" width="84" height="47" fill="none" xmlns="http://www.w3.org/2000/svg"><ellipse cx="23.478" cy="23.5" rx="23.478" ry="23.5" fill="#fff"/><path d="M83.5 23.5c0 5.565-4.507 10.075-10.065 10.075-5.559 0-10.065-4.51-10.065-10.075 0-5.565 4.506-10.075 10.065-10.075 5.558 0 10.065 4.51 10.065 10.075Z" stroke="#fff"/></svg>
+        <img src="images/bg-card-front.png" alt="card__front">
+      </div>
+      <div data-tilt class="back__card">
+        <h1>000</h1>
+        <img src="images/bg-card-back.png" alt="card__back">
+      </div>
+    </div>
+    <div class="card__inputs">
+      <form name="cardForm" id="cardForm" method="post" onsubmit="validateForm()"> <!--POST-->
+        <label for="cardHolder">Cardholder Name</label>
+        <input id="cardHolder" name="cardHolder" placeholder="Jane Applessed" type="text">
+        <label for="cardNumber">Card Number</label>
+        <input id="cardNumber" name="cardNumber" placeholder="1234 5678 9123 0000" type="text">
+        <div class="card__data__label">
+          <label for="">Exp.Date(MM/YY)</label>
+          <label for="">Cvc</label>
+        </div>
+          <div class="card__exp__cvc">
+            <input id="mm" type="number" name="cardMonths" placeholder="MM">
+            <input id="yy" type="number" name="cardDays" placeholder="YY">
+            <input id="cvc" type="number" name="cardCvc" placeholder="123">
+          </div>
+          <button type="submit">Confirm</button>
+      </form>
+    </div>
+  </main>
+  <script src="js/vanilla-tilt.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" referrerpolicy="no-referrer"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.16/jquery.mask.min.js" integrity="sha512-pHVGpX7F/27yZ0ISY+VVjyULApbDlD0/X0rgGbTqCE7WFW5MezNTWG/dnhtbBuICzsd0WQPgpE4REBLv+UqChw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+  <script src="js/main.js"></script>
+</body>
+</html>
